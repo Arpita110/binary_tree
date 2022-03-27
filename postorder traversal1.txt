@@ -1,0 +1,16 @@
+POST OREDER TRAVERSAL 
+Input: root = [1,null,2,3]
+Output: [3,2,1]
+
+
+vector<int>v;
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+       if(root==NULL)
+            return v;
+        
+        postorderTraversal(root->left);
+        postorderTraversal(root->right);
+        v.push_back(root->val);
+        return v; 
+    }
