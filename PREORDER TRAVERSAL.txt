@@ -1,0 +1,15 @@
+PREORDER TRAVERSAL 
+
+Input: root = [1,null,2,3]
+Output: [1,2,3]
+
+vector<int>v;
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        if(root==NULL)
+            return v;
+        v.push_back(root->val);
+        preorderTraversal(root->left);
+        preorderTraversal(root->right);
+        return v;
+    }
