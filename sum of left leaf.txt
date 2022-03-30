@@ -1,0 +1,19 @@
+SUM OF LEFT LEAF
+
+
+ void solve(TreeNode* root,bool temp,int *sum)
+    {
+     if(root==NULL)
+         return ;
+        if(root->left==NULL&&root->right==NULL&&temp==1)
+            *sum+=root->val;
+        solve(root->left,1,sum);
+        solve(root->right,0,sum);
+    }
+     
+    int sumOfLeftLeaves(TreeNode* root) {
+        int sum=0;
+        solve(root,0,&sum);
+        return sum;
+    }
+    
