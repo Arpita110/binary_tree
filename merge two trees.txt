@@ -1,0 +1,28 @@
+MERGE TWO TREES
+
+TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+        TreeNode *temp = new TreeNode();
+      if(root1==NULL&&root2==NULL)
+          return 0;
+        if(root1!=NULL && root2!=NULL)
+        {
+            temp->val =root1->val+root2->val;
+        temp->left = mergeTrees(root1->left,root2->left);
+        temp->right = mergeTrees(root1->right,root2->right);
+        }
+        else if(root1==NULL&&root2!=NULL)
+        {
+            temp->val=root2->val;
+        temp->left = mergeTrees(NULL,root2->left);
+        temp->right = mergeTrees(NULL,root2->right);
+        }
+         else if(root2==NULL&&root1!=NULL)
+        {
+            temp->val=root1->val;
+        temp->left = mergeTrees(root1->left,NULL);
+        temp->right = mergeTrees(root1->right,NULL);
+        }
+        return temp;
+        
+        
+    }
