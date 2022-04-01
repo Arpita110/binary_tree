@@ -1,0 +1,21 @@
+2nd smallest element in bt
+
+void inorder(TreeNode* root, set<int>&s)
+    {
+        if(root==NULL)
+			return;
+		inorder(root->left,s);
+		s.insert(root->val);
+		inorder(root->right,s);
+    }
+    
+    int findSecondMinimumValue(TreeNode* root) {
+        set<int>s;
+		inorder(root,s);
+		if(s.size()==1)
+		return -1;
+		auto it = s.begin();
+		it++;
+		return *it;      
+        
+    }
