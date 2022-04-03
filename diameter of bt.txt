@@ -1,0 +1,18 @@
+DIAMETER OF BT
+
+int height(TreeNode* root, int &ans)
+     {
+         if(root==NULL)
+             return 0;
+         int l=height(root->left,ans);
+         int r= height(root->right,ans);
+         ans= max(ans,l+r);
+         return max(l,r)+1;
+     }
+    
+    int diameterOfBinaryTree(TreeNode* root) {
+        int ans= INT_MIN;
+        height(root, ans);
+        return ans;
+        
+    }
