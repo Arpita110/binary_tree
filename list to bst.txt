@@ -1,0 +1,29 @@
+CONVERT LIST TO BST
+
+ListNode* middle(ListNode* head)
+     {
+         ListNode* ptr=NULL;
+         ListNode* slow=head;
+         ListNode* fast=head;
+         while(fast&&fast->next)
+         {
+             ptr=slow;
+             slow=slow->next;
+             fast=fast->next->next;
+         }
+         ptr->next=NULL;
+         return slow;
+         
+     }
+    TreeNode* sortedListToBST(ListNode* head) {
+        if(head==NULL)
+        return NULL;
+        if(head->next==NULL)
+            return new TreeNode(head->val);
+        ListNode * mid=middle(head);
+        
+        TreeNode *ptr= new TreeNode(mid->val);
+            ptr->left=sortedListToBST(head);
+        ptr->right=sortedListToBST(mid->next);
+        return ptr;
+    }
