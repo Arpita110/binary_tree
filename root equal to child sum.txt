@@ -1,0 +1,10 @@
+ROOT EQUALS TO SUM OF CHILD
+
+bool checkTree(TreeNode* root) {
+       if(!root)
+           return true;
+        if(root->val==root->left->val+root->right->val)
+            return true;
+        else 
+            return false;
+    }
